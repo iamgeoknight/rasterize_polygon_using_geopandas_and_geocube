@@ -8,7 +8,7 @@ from rasterio.enums import MergeAlg
 
 def polygonsToRaster():
     # Read California Census Polygon Shapefile
-    cal_census = gpd.read_file('shps/california_census/census_pops.shp')
+    cal_census = gpd.read_file('shps/census_pops.zip')
     cal_census = cal_census.rename(columns={'POP20': 'pops'})
 
     # Reprojecting to 3857 coordinate system
@@ -27,9 +27,9 @@ def polygonsToRaster():
 
 def pointsToRaster():
     # Read UK Accidents Point csvs
-    uk_accidents_1 = pd.read_csv('csvs/uk_accidents_2005_to_2007.csv')
-    uk_accidents_2 = pd.read_csv('csvs/uk_accidents_2009_to_2011.csv')
-    uk_accidents_3 = pd.read_csv('csvs/uk_accidents_2012_to_2014.csv')
+    uk_accidents_1 = pd.read_csv('csvs/uk_accidents_2005_to_2007.tar.xz')
+    uk_accidents_2 = pd.read_csv('csvs/uk_accidents_2009_to_2011.tar.xz')
+    uk_accidents_3 = pd.read_csv('csvs/uk_accidents_2012_to_2014.tar.xz')
     
     uk_accidents = pd.concat([uk_accidents_1, uk_accidents_2, uk_accidents_3])
 
