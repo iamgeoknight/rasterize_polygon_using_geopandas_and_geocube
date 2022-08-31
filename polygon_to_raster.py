@@ -40,8 +40,8 @@ def pointsToRaster():
     # Reprojecting to 3857 coordinate system
     uk_accidents = uk_accidents.to_crs('EPSG:3857')
     uk_accidents['value'] = 1
-    uk_accidents = uk_accidents[uk_accidents.is_valid]    
-    
+    uk_accidents = uk_accidents[uk_accidents.is_valid]
+    uk_accidents = uk_accidents[~uk_accidents.is_empty]
     
     # Using GeoCube to rasterize the Vector
     uk_accidents_raster = make_geocube(
