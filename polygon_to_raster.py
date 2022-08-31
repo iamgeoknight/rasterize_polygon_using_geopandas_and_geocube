@@ -26,8 +26,12 @@ def polygonsToRaster():
     cal_census_raster.rio.to_raster('rasters/cal_census.tiff')
 
 def pointsToRaster():
-    # Read UK Accidents Point Shapefile
-    uk_accidents = pd.read_csv('csvs/uk_accidents_2005_to_2014.csv')
+    # Read UK Accidents Point csvs
+    uk_accidents_1 = pd.read_csv('csvs/uk_accidents_2005_to_2007.csv')
+    uk_accidents_2 = pd.read_csv('csvs/uk_accidents_2009_to_2011.csv')
+    uk_accidents_3 = pd.read_csv('csvs/uk_accidents_2012_to_2014.csv')
+    
+    uk_accidents = pd.concat([uk_accidents_1, uk_accidents_2, uk_accidents_3])
 
     # Convert Long Lat into numeric type
     uk_accidents['Longitude'] = pd.to_numeric(uk_accidents['Longitude'])
